@@ -124,23 +124,29 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
     <script src="menu.js" charset="utf-8"></script>
     <script src="board.js" charset="utf-8"></script>
-    <canvas id="canvas" height="600" width="1200"></canvas>
-    <div class="menu_class" id="loadCanvas" style="display:block;">
+    
+    <div class="menu_class" id="loadCanvas" style="display:none;">
+        
+        <label id="score" for="name">Score:</label>
+        <input id="lblScore" type="text" />
+        <label id="time" for="name">Time:</label>
+        <input id="lblTime" type="text" />
+        <br />
+        <canvas id="canvas" height="600" width="1200"></canvas>
         <script>
         var context = canvas.getContext("2d");
         </script>
     </div>
 
-    <div class="menu_class" id="score" style="display:none;">
-        SCORE:
+    <!-- <div class="menu_class" id="score" style="display:none;">
+        <label id="score" for="name">Score:</label>
         <input id="lblScore" type="text" />
         <br />
         TIME:
+        <label id="time" for="name">Time:</label>
         <input id="lblTime" type="text" />
         <br />
-
-
-    </div>
+    </div> -->
 
 </body>
 

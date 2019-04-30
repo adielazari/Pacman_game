@@ -52,7 +52,7 @@ shuffle(pointsArray);
 
 
 function initgame(arr){
-
+    clearInterval(interval);
     keysDown = {};
     addEventListener("keydownn", function (e) {
         keysDown[e.code] = true;
@@ -545,12 +545,13 @@ function UpdatePosition() {
         }
 
         if(number_ghosts==3){
-            UpdatePositionGhost(ghost_red);
-            UpdatePositionGhost(ghost_pink);
-            UpdatePositionGhost(ghost_yellow);
             drawGhosts(ghost_red);
             drawGhosts(ghost_pink);
             drawGhosts(ghost_yellow);
+            UpdatePositionGhost(ghost_red);
+            UpdatePositionGhost(ghost_pink);
+            UpdatePositionGhost(ghost_yellow);
+            
         }
 
 

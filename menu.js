@@ -293,6 +293,8 @@ toggle("Welcome");
           targ.style.display = 'none';
           var targ = document.getElementById('Login_li');
           targ.style.display = 'none';
+          var targ = document.getElementById('canvas');
+          targ.style.display = 'block';
           //addToMenu(userID);
       }
       else{
