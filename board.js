@@ -10,15 +10,23 @@ var direction=4;
 var board_width=20;
 var board_height=10;
 var number_points=90;
-var number_ghosts=2;
+var number_ghosts=3;
+var points_5_color="red";
+var points_15_color="blue";
+var points_25_color="green";
 var pacman = {x:0, y:0, color:"yellow"};
 var ghost_red = {x:1, y:1,sprite:85};
 var ghost_pink = {x:1, y:board_height-2,sprite:104};
+var ghost_yellow = {x:board_height-2, y:1,sprite:146};
 var msPacman = {x:board_height-2, y:1};
 var health = {health_left:3,sprite:16};
 var showmsPacman=true;
 var powerup = {x:0,y:0};
 var disco=false;
+var keyup;
+var keydownn;
+var keyleft;
+var keyright;
 // var ghost_pink = {x:board_height-2, y:board_height:1};
 var free=new Array();
 var sprites=new Image();
@@ -43,18 +51,30 @@ var pointsArray = new Array();
 shuffle(pointsArray);
 
 
+function initgame(arr){
 
-function initPointsArray(){
-
+    keysDown = {};
+    addEventListener("keydownn", function (e) {
+        keysDown[e.code] = true;
+    }, false);
+    addEventListener("keyup", function (e) {
+        keysDown[e.code] = false;
+    }, false);
+    interval = setInterval(UpdatePosition, 300);
+    Start(arr);
+}
+function initPointsArray(arr){
+    // 0:up 1:down 2:right 3:left 4:num_balls 5:num_ghosts
+    // 6:5_points_color 7:15_points_color 8: 25_points_color 9:time in seconds
         for (var i = 0; i < number_points*0.6; i++) {
-            pointsArray.push(new point(60,"red",5));
+            pointsArray.push(new point(60,arr[6],5));
         }
         for (i=0; i < number_points*0.3; i++) {
-            pointsArray.push(new point(30,"orange",15));
+            pointsArray.push(new point(30,arr[7],15));
 
         }
         for (i=0; i< number_points*0.1; i++) {
-            pointsArray.push(new point(10,"purple",25));
+            pointsArray.push(new point(10,arr[8],25));
 
         }
     }
@@ -72,19 +92,17 @@ return a;
 }
 
 
-function initgame(){
-    keysDown = {};
-    addEventListener("keydown", function (e) {
-        keysDown[e.code] = true;
-    }, false);
-    addEventListener("keyup", function (e) {
-        keysDown[e.code] = false;
-    }, false);
-    interval = setInterval(UpdatePosition, 300);
-    Start();
-}
-function Start() {
-    initPointsArray();
+
+function Start(arr) {
+    // 0:up 1:down 2:right 3:left 4:num_balls 5:num_ghosts
+    // 6:5_points_color 7:15_points_color 8: 25_points_color 9:time in seconds
+    keyup=arr[0];
+    keydownn=arr[1];
+    keyright=arr[2];
+    keyleft=arr[3];
+    number_points=arr[4];
+    number_ghosts=arr[5];
+    initPointsArray(arr);
     board = new Array();
     score = 0;
     pac_color = "yellow";
@@ -154,16 +172,16 @@ function findRandomEmptyCell(board) {
  * @return {number}
  */
 function GetKeyPressed() {
-    if (keysDown['ArrowUp']) {
+    if (keysDown[keyup]) {
         return 1;
     }
-    if (keysDown['ArrowDown']) {
+    if (keysDown[keydownn]) {
         return 2;
     }
-    if (keysDown['ArrowLeft']) {
+    if (keysDown[keyleft]) {
         return 3;
     }
-    if (keysDown['ArrowRight']) {
+    if (keysDown[keyright]) {
         return 4;
     }
 }
@@ -524,6 +542,15 @@ function UpdatePosition() {
         if(showmsPacman){
             UpdatePositionMsPacman();
             drawMsPacman();
+        }
+
+        if(number_ghosts==3){
+            UpdatePositionGhost(ghost_red);
+            UpdatePositionGhost(ghost_pink);
+            UpdatePositionGhost(ghost_yellow);
+            drawGhosts(ghost_red);
+            drawGhosts(ghost_pink);
+            drawGhosts(ghost_yellow);
         }
 
 

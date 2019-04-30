@@ -1,6 +1,9 @@
 toggle("Welcome");
-  var Array_of_setting;
+  var Array_of_setting=new Array();
+  var Array_of_setting_check= new Array();
   var users = new Array();
+  var start=false;
+  var bool=false;
   function userObject(username,password){
       this.username=username;
       this.password=password;
@@ -140,6 +143,9 @@ toggle("Welcome");
       document.getElementById("twenty_five_points").value = twenty_five_points_1;
       var time = getRandonTime();
       document.getElementById("time_setting").value = time;
+      bool=true;
+      check_setting();
+      bool=false;
   }
   /*random time to timer*/
   function getRandonTime(){
@@ -161,18 +167,30 @@ toggle("Welcome");
 
   /*valid setting*/
   function check_setting(){
-      var Array_of_setting_check = [
-          document.getElementById("txtChar_up").value,
-          document.getElementById("txtChar_down").value,
-          document.getElementById("txtChar_right").value,
-          document.getElementById("txtChar_left").value,
-          document.getElementById("numOfBalls").value,
-          document.getElementById("numOfMunsters").value,
-          document.getElementById("five_points").value,
-          document.getElementById("fifteen_points").value,
-          document.getElementById("twenty_five_points").value,
-          document.getElementById("time_setting").value
-      ]
+      Array_of_setting_check = [];
+      Array_of_setting_check.push(document.getElementById("txtChar_up").value);
+      Array_of_setting_check.push(document.getElementById("txtChar_down").value);
+      Array_of_setting_check.push(document.getElementById("txtChar_right").value);
+      Array_of_setting_check.push(document.getElementById("txtChar_left").value);
+      Array_of_setting_check.push(document.getElementById("numOfBalls").value);
+      Array_of_setting_check.push(document.getElementById("numOfMunsters").value);
+      Array_of_setting_check.push(document.getElementById("five_points").value);
+      Array_of_setting_check.push(document.getElementById("fifteen_points").value);
+      Array_of_setting_check.push(document.getElementById("twenty_five_points").value);
+      Array_of_setting_check.push(document.getElementById("time_setting").value);
+
+      //  Array_of_setting_check = [
+      //     document.getElementById("txtChar_up").value,
+      //     document.getElementById("txtChar_down").value,
+      //     document.getElementById("txtChar_right").value,
+      //     document.getElementById("txtChar_left").value,
+      //     document.getElementById("numOfBalls").value,
+      //     document.getElementById("numOfMunsters").value,
+      //     document.getElementById("five_points").value,
+      //     document.getElementById("fifteen_points").value,
+      //     document.getElementById("twenty_five_points").value,
+      //     document.getElementById("time_setting").value
+      // ]
       var isvalidCheck = true;
       //bolls 50 to 90
       var numOfBalls_2 = Array_of_setting_check[4];
@@ -232,9 +250,14 @@ toggle("Welcome");
           document.getElementById("numOfMunsters").value,
           document.getElementById("five_points").value,
           document.getElementById("fifteen_points").value,
+          document.getElementById("twenty_five_points").value,
           timeTosecVar];
-          Array_of_setting_check =[];
-          window.alert("Save succsesfuly");
+          // Array_of_setting_check =[];
+          Array_of_setting=Array_of_setting_check;
+          if(!bool){
+              window.alert("Save succsesfuly");
+          }
+
           toggle("Welcome");
   }
   function TimeTosec(time){
@@ -277,8 +300,14 @@ toggle("Welcome");
       }
   }
 
+  function isPlayable(){
+      return start;
+  }
+
   function loadCan(){
-      toggle("loadCanvas")
+      start=true;
+      toggle('loadCanvas');
+      initgame(Array_of_setting);
   }
 
   function Register(){
