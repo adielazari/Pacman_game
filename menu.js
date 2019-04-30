@@ -127,10 +127,10 @@ toggle("Welcome");
   }
   /*set random settings*/
   function Randon_setting(){
-      document.getElementById("txtChar_up").value = "up arrow";
-      document.getElementById("txtChar_down").value = "down arrow";
-      document.getElementById("txtChar_right").value = "right arrow";
-      document.getElementById("txtChar_left").value = "left arrow";
+      document.getElementById("txtChar_up").value = "ArrowUp";
+      document.getElementById("txtChar_down").value = "ArrowDown";
+      document.getElementById("txtChar_right").value = "ArrowRight";
+      document.getElementById("txtChar_left").value = "ArrowLeft";
       var numOfBalls_1 = Math.floor(Math.random() * 40)+50;
       document.getElementById("numOfBalls").value = numOfBalls_1;
       var numOfMunsters_1 = Math.floor(Math.random() * 3)+1;

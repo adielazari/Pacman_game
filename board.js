@@ -27,6 +27,8 @@ var keyup;
 var keydownn;
 var keyleft;
 var keyright;
+var theme;
+var chomp;
 // var ghost_pink = {x:board_height-2, y:board_height:1};
 var free=new Array();
 var sprites=new Image();
@@ -36,6 +38,21 @@ hearts.src="hearts.png";
 var ball5 = new Image();
 ball5.src="ball5.png";
 
+
+function sound(src) {
+  this.sound = document.createElement("audio");
+  this.sound.src = src;
+  this.sound.setAttribute("preload", "auto");
+  this.sound.setAttribute("controls", "none");
+  this.sound.style.display = "none";
+  document.body.appendChild(this.sound);
+  this.play = function(){
+    this.sound.play();
+  }
+  this.stop = function(){
+    this.sound.pause();
+  }
+}
 
 
 function User_points(num){
@@ -52,6 +69,10 @@ shuffle(pointsArray);
 
 
 function initgame(arr){
+    theme = new sound("pacman.mp3");
+    chomp = new sound("pacman_chomp.wav");
+    theme.play();
+
     clearInterval(interval);
     keysDown = {};
     keysDown[arr[0]]=true;
@@ -521,6 +542,7 @@ function UpdatePosition() {
     }
     if (board[pacman.x][pacman.y] instanceof point) {
         score+=board[pacman.x][pacman.y].value;
+        chomp.play();
     }
     if(pacman.x==msPacman.x && pacman.y==msPacman.y){
         score+=50;
