@@ -54,7 +54,20 @@ shuffle(pointsArray);
 function initgame(arr){
     clearInterval(interval);
     keysDown = {};
-    addEventListener("keydownn", function (e) {
+    keysDown[arr[0]]=true;
+    keysDown[arr[1]]=true;
+    keysDown[arr[2]]=true;
+    keysDown[arr[3]]=true;
+    keyup=arr[0];
+    keydownn=arr[1];
+    keyright=arr[2];
+    keyleft=arr[3];
+
+    // keysDown.push(arr[0]);
+    // keysDown.push(arr[1]);
+    // keysDown.push(arr[2]);
+    // keysDown.push(arr[3]);
+    addEventListener("keydown", function (e) {
         keysDown[e.code] = true;
     }, false);
     addEventListener("keyup", function (e) {
@@ -96,10 +109,8 @@ return a;
 function Start(arr) {
     // 0:up 1:down 2:right 3:left 4:num_balls 5:num_ghosts
     // 6:5_points_color 7:15_points_color 8: 25_points_color 9:time in seconds
-    keyup=arr[0];
-    keydownn=arr[1];
-    keyright=arr[2];
-    keyleft=arr[3];
+
+
     number_points=arr[4];
     number_ghosts=arr[5];
     initPointsArray(arr);
@@ -551,7 +562,7 @@ function UpdatePosition() {
             UpdatePositionGhost(ghost_red);
             UpdatePositionGhost(ghost_pink);
             UpdatePositionGhost(ghost_yellow);
-            
+
         }
 
 

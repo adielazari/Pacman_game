@@ -351,7 +351,7 @@ toggle("Welcome");
   /*get key from keyboard by press*/
   function displayKeyCode(evt,id)
   {
-  window.alert(id);
+
   var textBox = getObject(id);
 //   var charCode = (evt.which) ? evt.which : event.code
   textBox.value = ""+event.code;
