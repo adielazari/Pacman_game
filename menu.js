@@ -338,6 +338,8 @@ toggle("Welcome");
           targ.style.display = 'block';
           var targ = document.getElementById('Login_li');
           targ.style.display = 'block';
+          var targ = document.getElementById('canvas');
+        targ.style.display = 'none';
           document.getElementById("user_label").textContent="";
           toggle('Welcome');
           // var myList = document.getElementById('userId_li');
