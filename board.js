@@ -75,10 +75,10 @@ function initgame(arr){
 
     clearInterval(interval);
     keysDown = {};
-    keysDown[arr[0]]=true;
-    keysDown[arr[1]]=true;
-    keysDown[arr[2]]=true;
-    keysDown[arr[3]]=true;
+    // keysDown[arr[0]]=true;
+    // keysDown[arr[1]]=true;
+    // keysDown[arr[2]]=true;
+    // keysDown[arr[3]]=true;
     keyup=arr[0];
     keydownn=arr[1];
     keyright=arr[2];
@@ -94,7 +94,7 @@ function initgame(arr){
     addEventListener("keyup", function (e) {
         keysDown[e.code] = false;
     }, false);
-    interval = setInterval(UpdatePosition, 300);
+    interval = setInterval(UpdatePosition, 250);
     Start(arr);
 }
 function initPointsArray(arr){
