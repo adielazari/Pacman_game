@@ -94,7 +94,7 @@ function initgame(arr){
     addEventListener("keyup", function (e) {
         keysDown[e.code] = false;
     }, false);
-    interval = setInterval(UpdatePosition, 250);
+    interval = setInterval(UpdatePosition, 300);
     Start(arr);
 }
 function initPointsArray(arr){
@@ -555,7 +555,8 @@ function UpdatePosition() {
     }
     if(disco){
         clearInterval(interval);
-        interval = setInterval(UpdatePosition, 150);
+        interval = setInterval(UpdatePosition, 550);
+
         pacman.color=pacmanRandomcolor();
 
     }
