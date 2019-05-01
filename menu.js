@@ -18,8 +18,9 @@ toggle("Welcome");
   jQuery(function($) {
       var validation_holder;
       $("form#register_form input[name='submit']").click(function() {
-
+    
       var validation_holder = 0;
+      
 
           var fname 			= $("form#register_form input[name='fname']").val();
           var lname 			= $("form#register_form input[name='lname']").val();
@@ -31,6 +32,7 @@ toggle("Welcome");
           var day 			= $("form#register_form select[name='bday']").val(); // day
           var year 			= $("form#register_form select[name='bday']").val(); // year
 
+       
           /* validation start */
           /**fname */
           if(fname == "") {
@@ -79,6 +81,10 @@ toggle("Welcome");
               $("span.val_user").html("This field is required.").addClass('validate');
               validation_holder = 1;
           }
+          if(!userIsValid(user)){
+            $("span.val_user").html("user name already exist").addClass('validate');
+            validation_holder = 1;
+          }
           /**password */
           if(!password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/)){
               $("span.val_pass").html("8 letters , capital and lowercase letter and number").addClass('validate');
@@ -103,21 +109,50 @@ toggle("Welcome");
               return false;
           }
           validation_holder = 0;
-          // users.push(new user(user,password));
-           users.push(new userObject(user,password));
-          // users[i] = new Array();
-          // users[i][0]=user;
-          // users[i][1]=password;
-          // i++;
-
-          //localStorage.setItem("users",JSON.stringify(users));
+            users.push(new userObject(user,password));
           window.alert("You have been register successfully");
-          //return true;
+          
           toggle("Welcome")
           /* validation end */
       }); // click end
   }); // jQuery End
   /*adding to menu new "li"*/
+
+    function clearReg(){
+        var arr = document.getElementById("register_form");
+        var children = arr.getElementsByTagName('input');
+
+        for(var i = 0; i< children.length;i++)
+        {
+            if(children[i].type=="date"){
+                children[i].type=="1990-01-01";
+                break;
+            }
+            if(children[i].id !="reg_btn"){
+                children[i].value = "";  
+            }
+            
+        }
+
+        var children1 = arr.getElementsByTagName('span');
+
+        for(var i = 0; i< children1.length;i++)
+        {
+          children1[i].textContent = "";
+        }
+
+    
+    }
+
+  function userIsValid(user){
+    for (let index = 0; index < users.length; index++) {
+       if(user == users[index].username){
+           return false;
+       }
+    }
+    return true;
+  }
+
   function addToMenu(userName) {
       var ul = document.getElementById("menu_ul");
       var li = document.createElement("li");
@@ -179,18 +214,7 @@ toggle("Welcome");
       Array_of_setting_check.push(document.getElementById("twenty_five_points").value);
       Array_of_setting_check.push(document.getElementById("time_setting").value);
 
-      //  Array_of_setting_check = [
-      //     document.getElementById("txtChar_up").value,
-      //     document.getElementById("txtChar_down").value,
-      //     document.getElementById("txtChar_right").value,
-      //     document.getElementById("txtChar_left").value,
-      //     document.getElementById("numOfBalls").value,
-      //     document.getElementById("numOfMunsters").value,
-      //     document.getElementById("five_points").value,
-      //     document.getElementById("fifteen_points").value,
-      //     document.getElementById("twenty_five_points").value,
-      //     document.getElementById("time_setting").value
-      // ]
+      
       var isvalidCheck = true;
       //bolls 50 to 90
       var numOfBalls_2 = Array_of_setting_check[4];
@@ -353,73 +377,8 @@ toggle("Welcome");
   {
 
   var textBox = getObject(id);
-//   var charCode = (evt.which) ? evt.which : event.code
   textBox.value = ""+event.code;
-//   if (charCode == 8) textBox.value = "backspace"; //  backspace
-//   if (charCode == 9) textBox.value = "tab"; //  tab
-//   if (charCode == 13) textBox.value = "enter"; //  enter
-//   if (charCode == 16) textBox.value = "shift"; //  shift
-//   if (charCode == 17) textBox.value = "ctrl"; //  ctrl
-//   if (charCode == 18) textBox.value = "alt"; //  alt
-//   if (charCode == 19) textBox.value = "pause/break"; //  pause/break
-//   if (charCode == 20) textBox.value = "caps lock"; //  caps lock
-//   if (charCode == 27) textBox.value = "escape"; //  escape
-//   if (charCode == 33) textBox.value = "page up"; // page up, to avoid displaying alternate character and confusing people
-//   if (charCode == 34) textBox.value = "page down"; // page down
-//   if (charCode == 35) textBox.value = "end"; // end
-//   if (charCode == 36) textBox.value = "home"; // home
-//   if (charCode == 37) textBox.value = "left arrow"; // left arrow
-//   if (charCode == 38) textBox.value = "up arrow"; // up arrow
-//   if (charCode == 39) textBox.value = "right arrow"; // right arrow
-//   if (charCode == 40) textBox.value = "down arrow"; // down arrow
-//   if (charCode == 45) textBox.value = "insert"; // insert
-//   if (charCode == 46) textBox.value = "delete"; // delete
-//   if (charCode == 91) textBox.value = "left window"; // left window
-//   if (charCode == 92) textBox.value = "right window"; // right window
-//   if (charCode == 93) textBox.value = "select key"; // select key
-//   if (charCode == 96) textBox.value = "numpad 0"; // numpad 0
-//   if (charCode == 97) textBox.value = "numpad 1"; // numpad 1
-//   if (charCode == 98) textBox.value = "numpad 2"; // numpad 2
-//   if (charCode == 99) textBox.value = "numpad 3"; // numpad 3
-//   if (charCode == 100) textBox.value = "numpad 4"; // numpad 4
-//   if (charCode == 101) textBox.value = "numpad 5"; // numpad 5
-//   if (charCode == 102) textBox.value = "numpad 6"; // numpad 6
-//   if (charCode == 103) textBox.value = "numpad 7"; // numpad 7
-//   if (charCode == 104) textBox.value = "numpad 8"; // numpad 8
-//   if (charCode == 105) textBox.value = "numpad 9"; // numpad 9
-//   if (charCode == 106) textBox.value = "multiply"; // multiply
-//   if (charCode == 107) textBox.value = "add"; // add
-//   if (charCode == 109) textBox.value = "subtract"; // subtract
-//   if (charCode == 110) textBox.value = "decimal point"; // decimal point
-//   if (charCode == 111) textBox.value = "divide"; // divide
-//   if (charCode == 112) textBox.value = "F1"; // F1
-//   if (charCode == 113) textBox.value = "F2"; // F2
-//   if (charCode == 114) textBox.value = "F3"; // F3
-//   if (charCode == 115) textBox.value = "F4"; // F4
-//   if (charCode == 116) textBox.value = "F5"; // F5
-//   if (charCode == 117) textBox.value = "F6"; // F6
-//   if (charCode == 118) textBox.value = "F7"; // F7
-//   if (charCode == 119) textBox.value = "F8"; // F8
-//   if (charCode == 120) textBox.value = "F9"; // F9
-//   if (charCode == 121) textBox.value = "F10"; // F10
-//   if (charCode == 122) textBox.value = "F11"; // F11
-//   if (charCode == 123) textBox.value = "F12"; // F12
-//   if (charCode == 144) textBox.value = "num lock"; // num lock
-//   if (charCode == 145) textBox.value = "scroll lock"; // scroll lock
-//   if (charCode == 186) textBox.value = ";"; // semi-colon
-//   if (charCode == 187) textBox.value = "="; // equal-sign
-//   if (charCode == 188) textBox.value = ","; // comma
-//   if (charCode == 189) textBox.value = "-"; // dash
-//   if (charCode == 190) textBox.value = "."; // period
-//   if (charCode == 191) textBox.value = "/"; // forward slash
-//   if (charCode == 192) textBox.value = "`"; // grave accent
-//   if (charCode == 219) textBox.value = "["; // open bracket
-//   if (charCode == 220) textBox.value = "\\"; // back slash
-//   if (charCode == 221) textBox.value = "]"; // close bracket
-//   if (charCode == 222) textBox.value = "'"; // single quote
-//   // var lblCharCode = getObject('spnCode');
-//   // lblCharCode.innerHTML = 'KeyCode:  ' + charCode;
-  // return false;
+
   }
   function getObject(obj)
   {
@@ -443,6 +402,9 @@ toggle("Welcome");
 
   /*change div by clicking on menu choise*/
   function toggle(target) {
+    if(target =="Register"){
+        clearReg();
+    }
       var menu_var = document.getElementsByClassName('menu_class');
       var targ = document.getElementById(target);
       var isVis = targ.style.display == 'block';
