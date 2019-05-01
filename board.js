@@ -17,7 +17,7 @@ var points_25_color="green";
 var pacman = {x:0, y:0, color:"yellow"};
 var ghost_red = {x:1, y:1,sprite:85};
 var ghost_pink = {x:1, y:board_height-2,sprite:104};
-var ghost_yellow = {x:board_height-2, y:1,sprite:146};
+var ghost_yellow = {x:board_width-2, y:1,sprite:146};
 var msPacman = {x:board_height-2, y:1};
 var health = {health_left:3,sprite:16};
 var showmsPacman=true;
@@ -29,6 +29,7 @@ var keyleft;
 var keyright;
 var theme;
 var chomp;
+var settings;
 // var ghost_pink = {x:board_height-2, y:board_height:1};
 var free=new Array();
 var sprites=new Image();
@@ -67,8 +68,19 @@ var pointsArray = new Array();
 
 shuffle(pointsArray);
 
-
+function restart(){
+    document.getElementById('endGame').style.display='none';
+    health.health_left=3;
+     ghost_red.x=1;
+     ghost_red.y=1;
+     ghost_pink.x=1;
+     ghost_pink.y=board_height-2;
+     ghost_yellow.x=board_width-2;
+     ghost_yellow.y=1;
+    initgame(settings);
+}
 function initgame(arr){
+    settings=arr;
     theme = new sound("pacman.mp3");
     chomp = new sound("pacman_chomp.wav");
     theme.play();
@@ -563,9 +575,10 @@ function UpdatePosition() {
     board[pacman.x][pacman.y] = 2;
     var currentTime = new Date();
     time_elapsed = (currentTime - start_time) / 1000;
-    if (score === 5000) {
-        window.clearInterval(interval);
-        window.alert("Game completed");
+    if (health.health_left==0 || time_elapsed>=settings[9]) {
+        // window.clearInterval(interval);
+        // window.alert("Game completed");
+        gameover();
     } else {
         Draw();
         drawHearts();

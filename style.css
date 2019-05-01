@@ -5,16 +5,17 @@ body{
 
 }
 
-#canvas_window{
-    z-index: 101;
-
-}
-
+/* #canvas{
+    width:1200px;
+    height: 600px;
+} */
 #endGame{
+    left : 400px;
+    top : 300px;
     width:400px;
     height: 200px;
     padding 20px;
-    background-color: white;
+    background-color: grey;
     margin: auto;
     text-align: center;
 }

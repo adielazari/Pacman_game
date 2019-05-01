@@ -96,8 +96,6 @@
                 <label for="psw"><b>Password</b></label>
                 <input id="psw" type="password" placeholder="Enter Password" name="psw" required>
 
-                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
                 <div class="clearfix">
                     <button type="button" class="signup" onclick="configuration()">Login</button>
                 </div>
@@ -115,9 +113,15 @@
                 <p>adiel lazari<p>
                 <p>We use jquery for register constraints , using templates for registeration and  sign up form</p>
                 <ol>in adition we did some functional:
+                    <br>
                       <li>Add candies that the Pacman can eat and add a special score, appear and disappear for short periods of time.</li>
+                      <br>
                       <li>Different types of monsters (colors, shapes, etc.).</li>
+                      <br>
                        <li>The monsters and the pacmen will move slowly when the pacman eating a cherry</li>
+                       <br>
+                       <li>when pacman is eating food a sound will be played</li>
+
                 </ol>
                 <footer>
                     <p>info:</p>
@@ -131,19 +135,19 @@
     <script src="menu.js" charset="utf-8"></script>
     <script src="board.js" charset="utf-8"></script>
 
-    <div class="menu_class" id="loadCanvas" style="display:none; position:relative">
+    <div class="menu_class" id="loadCanvas"  style="display:none; position:relative">
 
         <label id="score" for="name">Score:</label>
         <input id="lblScore" type="text" />
         <label id="time" for="name">Time:</label>
         <input id="lblTime" type="text" />
         <br />
-        <div id="canvas_window">
-            <canvas id="canvas" height="600" width="1200" style="position:absolutes"></canvas>
-            <div id="endGame" style="display:none;>
+        <!-- <div id="canvas_window"> -->
+            <canvas id="canvas" height="600" width="1200" style="position:absolute;"></canvas>
+            <div id="endGame" style="display:none; position:absolute;">
                     <h1 id="endgame_h1"> </h1>
-                    <div id="btnendGame" class="button" onclick="initgame()"> Play Again </div>
-        </div>
+                    <div id="btnendGame" class="button" onclick="restart()"> Play Again </div>
+        <!-- </div> -->
 
         </div>
         <script>
