@@ -619,6 +619,6 @@ function gameover(){
     else {
         showtext="We have a Winner!!!";
     }
-    document.getElementById("h1_gameover").innerHTML = showtext;
+    document.getElementById("endgame_h1").innerHTML = showtext;
     document.getElementById('endGame').style.display='block';
 }

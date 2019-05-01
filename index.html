@@ -117,7 +117,7 @@
                 <ol>in adition we did some functional:
                       <il>Add candies that the Pacman can eat and add a special score, appear and disappear for short periods of time.</il>
                       <il>Different types of monsters (colors, shapes, etc.).</il>
-                       <il>The monsters and the pacmen will move slowly when the pacman eating a cherry</il> 
+                       <il>The monsters and the pacmen will move slowly when the pacman eating a cherry</il>
                 </ol>
                 <footer>
                     <p>info:</p>
@@ -131,29 +131,27 @@
     <script src="menu.js" charset="utf-8"></script>
     <script src="board.js" charset="utf-8"></script>
 
-    <div class="menu_class" id="loadCanvas" style="display:none;">
+    <div class="menu_class" id="loadCanvas" style="display:none; position:relative">
 
         <label id="score" for="name">Score:</label>
         <input id="lblScore" type="text" />
         <label id="time" for="name">Time:</label>
         <input id="lblTime" type="text" />
         <br />
-        <canvas id="canvas" height="600" width="1200"></canvas>
+        <div id="canvas_window">
+            <canvas id="canvas" height="600" width="1200" style="position:absolutes"></canvas>
+            <div id="endGame" style="display:none;>
+                    <h1 id="endgame_h1"> </h1>
+                    <div id="btnendGame" class="button" onclick="initgame()"> Play Again </div>
+        </div>
+
+        </div>
         <script>
         var context = canvas.getContext("2d");
         </script>
     </div>
 
-    <div id="endGame" style="display:none;>
-        <div id="endGameContent">
-            <h1 id="h1_gameover"></h1>
-            <h2 id="h2_gameover"></h2>
-            <button id="btnrestart" type="button" name="restartbutton" onclick="initgame()"></button>
-            <button id="homescreen" type="button" name="homescreenbutton"></button>
 
-        </div>
-
-    </div>
 
     <!-- <div class="menu_class" id="score" style="display:none;">
         <label id="score" for="name">Score:</label>

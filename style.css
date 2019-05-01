@@ -5,6 +5,20 @@ body{
 
 }
 
+#canvas_window{
+    z-index: 101;
+
+}
+
+#endGame{
+    width:400px;
+    height: 200px;
+    padding 20px;
+    background-color: white;
+    margin: auto;
+    text-align: center;
+}
+
 #menu{
     padding: 0px;
     margin: 0px;
