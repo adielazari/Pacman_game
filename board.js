@@ -143,6 +143,10 @@ for (i = a.length - 1; i > 0; i--) {
 return a;
 }
 
+function isSettingsExist(){
+    return typeof settings !== 'undefined';
+}
+
 
 
 function Start(arr) {
