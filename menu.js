@@ -18,9 +18,9 @@ toggle("Welcome");
   jQuery(function($) {
       var validation_holder;
       $("form#register_form input[name='submit']").click(function() {
-    
+
       var validation_holder = 0;
-      
+
 
           var fname 			= $("form#register_form input[name='fname']").val();
           var lname 			= $("form#register_form input[name='lname']").val();
@@ -32,7 +32,7 @@ toggle("Welcome");
           var day 			= $("form#register_form select[name='bday']").val(); // day
           var year 			= $("form#register_form select[name='bday']").val(); // year
 
-       
+
           /* validation start */
           /**fname */
           if(fname == "") {
@@ -111,7 +111,7 @@ toggle("Welcome");
           validation_holder = 0;
             users.push(new userObject(user,password));
           window.alert("You have been register successfully");
-          
+
           toggle("Welcome")
           /* validation end */
       }); // click end
@@ -129,9 +129,9 @@ toggle("Welcome");
                 break;
             }
             if(children[i].id !="reg_btn"){
-                children[i].value = "";  
+                children[i].value = "";
             }
-            
+
         }
 
         var children1 = arr.getElementsByTagName('span');
@@ -141,7 +141,7 @@ toggle("Welcome");
           children1[i].textContent = "";
         }
 
-    
+
     }
 
   function userIsValid(user){
@@ -214,7 +214,7 @@ toggle("Welcome");
       Array_of_setting_check.push(document.getElementById("twenty_five_points").value);
       Array_of_setting_check.push(document.getElementById("time_setting").value);
 
-      
+
       var isvalidCheck = true;
       //bolls 50 to 90
       var numOfBalls_2 = Array_of_setting_check[4];
@@ -333,7 +333,13 @@ toggle("Welcome");
   function loadCan(){
       start=true;
       toggle('loadCanvas');
-      initgame(Array_of_setting);
+      if(isSettingsExist()){
+          restart()
+      }
+      else{
+        initgame(Array_of_setting);
+      }
+
   }
 
   function Register(){
