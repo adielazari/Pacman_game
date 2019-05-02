@@ -334,12 +334,24 @@ toggle("Welcome");
       start=true;
       toggle('loadCanvas');
       if(isSettingsExist()){
-          restart()
+          if(comparesettings(get_settings,Array_of_setting)){
+            set_Settings(Array_of_setting);
+          }
+          restart();
       }
       else{
         initgame(Array_of_setting);
       }
 
+  }
+
+  function comparesettings(board_settings,menu_settings){
+      for (var i = 0; i < board_settings; i++) {
+          if(board_settings[i]!==menu_settings[i]){
+              return false;
+          }
+      }
+      return true;
   }
 
   function Register(){
@@ -373,6 +385,7 @@ toggle("Welcome");
           var targ = document.getElementById('canvas');
         targ.style.display = 'none';
           document.getElementById("user_label").textContent="";
+          theme.stop();
           toggle('Welcome');
           // var myList = document.getElementById('userId_li');
           // myList.innerHTML = '';

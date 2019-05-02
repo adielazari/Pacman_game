@@ -146,6 +146,12 @@ return a;
 function isSettingsExist(){
     return typeof settings !== 'undefined';
 }
+function set_Settings(arr){
+    settings=arr;
+}
+function get_settings(){
+    return settings;
+}
 
 
 
