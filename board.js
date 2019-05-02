@@ -30,6 +30,7 @@ var keyright;
 var theme;
 var chomp;
 var settings;
+var staragain=true;
 // var ghost_pink = {x:board_height-2, y:board_height:1};
 var free=new Array();
 var sprites=new Image();
@@ -70,6 +71,7 @@ shuffle(pointsArray);
 
 function restart(){
     document.getElementById('endGame').style.display='none';
+    showmsPacman=true;
     health.health_left=3;
      ghost_red.x=1;
      ghost_red.y=1;
@@ -77,10 +79,14 @@ function restart(){
      ghost_pink.y=board_height-2;
      ghost_yellow.x=board_width-2;
      ghost_yellow.y=1;
+
+     disco=false;
+     pacman.color="yellow";
+
     initgame(settings);
 }
 function initgame(arr){
-    settings=arr;
+
     theme = new sound("pacman.mp3");
     chomp = new sound("pacman_chomp.wav");
     theme.play();
@@ -142,7 +148,11 @@ return a;
 function Start(arr) {
     // 0:up 1:down 2:right 3:left 4:num_balls 5:num_ghosts
     // 6:5_points_color 7:15_points_color 8: 25_points_color 9:time in seconds
-
+    // if(typeof settings !== 'undefined' && start){
+    //     start=false;
+    //     restart();
+    // }
+    settings=arr;
 
     number_points=arr[4];
     number_ghosts=arr[5];
@@ -622,6 +632,7 @@ function UpdatePosition() {
     }
 }
 function gameover(){
+    theme.stop();
     showtext="";
     if(health.health_left==0){
         showtext="You Lost!";
@@ -632,6 +643,7 @@ function gameover(){
     else {
         showtext="We have a Winner!!!";
     }
+    document.getElementById("endgame_h1_score").innerHTML="Your Score is "+score;
     document.getElementById("endgame_h1").innerHTML = showtext;
     document.getElementById('endGame').style.display='block';
 }
