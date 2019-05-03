@@ -19,6 +19,9 @@ body{
     margin: auto;
     text-align: center;
 }
+#header_text{
+    color:yellow;
+}
 
 #menu{
     padding: 0px;

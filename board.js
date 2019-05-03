@@ -31,6 +31,7 @@ var theme;
 var chomp;
 var settings;
 var staragain=true;
+var maxpoints;
 // var ghost_pink = {x:board_height-2, y:board_height:1};
 var free=new Array();
 var sprites=new Image();
@@ -166,6 +167,7 @@ function Start(arr) {
 
     number_points=arr[4];
     number_ghosts=arr[5];
+    maxpoints=number_points*0.6*5+number_points*0.3*10+number_points*0.1*25;
     initPointsArray(arr);
     board = new Array();
     score = 0;
@@ -595,7 +597,7 @@ function UpdatePosition() {
     board[pacman.x][pacman.y] = 2;
     var currentTime = new Date();
     time_elapsed = (currentTime - start_time) / 1000;
-    if (health.health_left==0 || time_elapsed>=settings[9]) {
+    if (health.health_left==0 || time_elapsed>=settings[9] || score ==maxpoints) {
         // window.clearInterval(interval);
         // window.alert("Game completed");
         gameover();
