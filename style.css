@@ -446,7 +446,14 @@ hr {
     cursor: pointer;
   }
   #new_game{
-      left : 400px;
-      top : 300px;
+      /* left : 400px;
+      top : 300px; */
       /* left:900; */
+      /* margin-left: 90%;
+      margin-top: 0%; */
+      margin-left: 10%;
+      font-size: 28px;
+      background-color: moccasin;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      border-radius: 25px;
   }
