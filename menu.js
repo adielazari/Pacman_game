@@ -185,10 +185,12 @@ toggle("Welcome");
   /*random time to timer*/
   function getRandonTime(){
       var s = Math.floor(Math.random() * 50)+10;
-      var m = Math.floor(Math.random() * 50)+10;
+      var m = Math.floor(Math.random() * 20)+1;
       var h = Math.floor(Math.random() * 14)+10;
-
-      return h + ":" + m + ":" + s;
+    if(m<10){
+        m="0"+m;
+    }
+      return "00:" + m + ":" + s;
   }
   /*get randon color*/
   function getRandomColor() {
@@ -251,10 +253,12 @@ toggle("Welcome");
       document.getElementById("warning5").textContent = "";
       var time1 = document.getElementById("time_setting").value;
       time1 = time1.split(":");
-      if(time1[0]<1){
+      if(time1[1]<1){
           isvalidCheck=false;
           document.getElementById("warning5").textContent = "Game time must be at list 1 min";
       }
+      Array_of_setting_check[9] = TimeTosec(document.getElementById("time_setting").value);
+
       if(isvalidCheck){
           saveSetting();
       }
