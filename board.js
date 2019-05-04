@@ -32,6 +32,7 @@ var chomp;
 var settings;
 var staragain=true;
 var maxpoints;
+var first=true;
 // var ghost_pink = {x:board_height-2, y:board_height:1};
 var free=new Array();
 var sprites=new Image();
@@ -82,6 +83,7 @@ function restart(){
      ghost_yellow.y=1;
 
      disco=false;
+     first=true;
      pacman.color="yellow";
 
     initgame(settings);
@@ -614,27 +616,62 @@ function UpdatePosition() {
         }
 
         if(number_ghosts==3){
-            drawGhosts(ghost_red);
-            drawGhosts(ghost_pink);
-            drawGhosts(ghost_yellow);
-            UpdatePositionGhost(ghost_red);
-            UpdatePositionGhost(ghost_pink);
-            UpdatePositionGhost(ghost_yellow);
+            if(first){
+                drawGhosts(ghost_red);
+                drawGhosts(ghost_pink);
+                drawGhosts(ghost_yellow);
+                UpdatePositionGhost(ghost_red);
+                UpdatePositionGhost(ghost_pink);
+                UpdatePositionGhost(ghost_yellow);
+                first=false;
+            }
+            else{
+                UpdatePositionGhost(ghost_red);
+                UpdatePositionGhost(ghost_pink);
+                UpdatePositionGhost(ghost_yellow);
+                drawGhosts(ghost_red);
+                drawGhosts(ghost_pink);
+                drawGhosts(ghost_yellow);
+
+            }
+
+
+
 
         }
 
 
         if(number_ghosts==2){
-            UpdatePositionGhost(ghost_red);
-            UpdatePositionGhost(ghost_pink);
-            drawGhosts(ghost_red);
-            drawGhosts(ghost_pink);
+            if(first){
+                drawGhosts(ghost_red);
+                drawGhosts(ghost_pink);
+                UpdatePositionGhost(ghost_red);
+                UpdatePositionGhost(ghost_pink);
+                first=false;
+            }
+            else{
+                UpdatePositionGhost(ghost_red);
+                UpdatePositionGhost(ghost_pink);
+                drawGhosts(ghost_red);
+                drawGhosts(ghost_pink);
+            }
+
+
         }
         else if (number_ghosts==1){
             ghost_pink.x=-5
             ghost_pink.y=-5;
-            UpdatePositionGhost(ghost_red);
-            drawGhosts(ghost_red);
+            if(first){
+                drawGhosts(ghost_red);
+                UpdatePositionGhost(ghost_red);
+                first=false;
+            }
+            else{
+                drawGhosts(ghost_red);
+                UpdatePositionGhost(ghost_red);
+            }
+
+
         }
         else{
 
