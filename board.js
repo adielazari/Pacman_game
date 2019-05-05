@@ -170,7 +170,7 @@ function Start(arr) {
 
     number_points=arr[4];
     number_ghosts=arr[5];
-    maxpoints=number_points*0.6*5+number_points*0.3*10+number_points*0.1*25;
+    maxpoints=number_points*0.6*5+number_points*0.3*10+number_points*0.1*25 + 50;
     initPointsArray(arr);
     board = new Array();
     score = 0;
