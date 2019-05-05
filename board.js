@@ -89,7 +89,7 @@ function restart(){
     initgame(settings);
 }
 function initgame(arr){
-
+    time_elapsed=0;
     theme = new sound("pacman.mp3");
     chomp = new sound("pacman_chomp.wav");
     theme.play();
@@ -165,6 +165,7 @@ function Start(arr) {
     //     start=false;
     //     restart();
     // }
+    time_elapsed=0;
     settings=arr;
 
     number_points=arr[4];
@@ -602,6 +603,7 @@ function UpdatePosition() {
     if (health.health_left==0 || time_elapsed>=settings[9] || score ==maxpoints) {
         // window.clearInterval(interval);
         // window.alert("Game completed");
+        lblTime=time_elapsed;
         gameover();
     } else {
         Draw();
