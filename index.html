@@ -25,6 +25,9 @@
                 <label id="user_label" for="name"></label>
         </div>
     </header>
+
+
+
     <section>
     <div class="menu_class" id="Setting" style="display:none;">
         <ul id="setting_menu">
@@ -49,7 +52,10 @@
         <div id="warning_div"><label class="warning" id="warning5" for="name"></label> </div>
 
     </div>
+    </section>
 
+
+    <section>
 
     <div class="menu_class" id="Welcome" style="display:none;">
         <!-- <img src="photos/eating.gif" alt="Italian Trulli" style="width:60%;height:60%;"> -->
@@ -66,9 +72,9 @@
 
     </div>
 
+    </section>
 
-
-
+    <section>
     <div class="menu_class" id="Register" style="display:none;">
 
             <h2 class="free_account">Create an free account</h2>
@@ -86,7 +92,10 @@
                     <input id="reg_btn" type="button" name="submit" value="Register">
             </form>
     </div>
+    </section>
 
+
+    <section>
     <div class="menu_class" id="Login" style="display:none;">
         <form class="modal-content" >
             <div class="container" >
@@ -106,6 +115,9 @@
         </form>
 
     </div>
+    </section>
+
+    <section>
 
     <div class="menu_class" id="About" style="display:none;">
         <div id="myModal" class="modal_about">
@@ -123,9 +135,13 @@
         </div>
     </div>
 
+    </section>
+
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
     <script src="menu.js" charset="utf-8"></script>
     <script src="board.js" charset="utf-8"></script>
+
+    <section>
 
     <div class="menu_class" id="loadCanvas"  style="display:none; position:relative">
 
@@ -136,7 +152,7 @@
         <input type="button" id="new_game" style="z-index:2;" onclick="loadCan()" value="New Game"/>
         <br />
         <!-- <div id="canvas_window"> -->
-            <canvas id="canvas" height="600" width="1200" style="position:absolute; z-index:1"></canvas>
+            <canvas id="canvas" height="600" width="1200" style="z-index:1"></canvas>
             <div id="endGame" style="display:none; z-index: 2; position:absolute;">
                     <h1 id="endgame_h1_score"> </h1>
                     <h1 id="endgame_h1"> </h1>
@@ -149,54 +165,51 @@
         var context = canvas.getContext("2d");
         </script>
     </div>
-
-
-             <!-- Site footer -->
-             <footer class="site-footer">
-                    <div class="container">
-                      <div class="row">
-                        <div class="col-sm-12 col-md-6">
-                          <h6>About</h6>
-                          <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative  to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers build up concepts in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p>
-                        </div>
-            
-              
-                        <div class="col-xs-6 col-md-3">
-                          <h6>Quick Links</h6>
-                          <ul class="footer-links">
-                            <li><a href="http://scanfcode.com/about/">About Us</a></li>
-                            <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
-                            <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
-                            <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
-                            <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <hr>
-                    </div>
-                    <div class="container">
-                      <div class="row">
-                        <div class="col-md-8 col-sm-6 col-xs-12">
-                          <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by 
-                       <a href="#">Scanfcode</a>.
-                          </p>
-                        </div>
-              
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                          <ul class="social-icons">
-                            <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-              </footer>
     </section>
 
-    <section>
-
+    <section id="footer_sec">
+         <!-- Site footer -->
+    <footer class="site-footer">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12 col-md-6">
+                  <h6>About</h6>
+                  <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative  to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers build up concepts in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p>
+                </div>
+    
+      
+                <div class="col-xs-6 col-md-3">
+                  <h6>Quick Links</h6>
+                  <ul class="footer-links">
+                    <li><a href="http://scanfcode.com/about/">About Us</a></li>
+                    <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
+                    <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
+                    <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
+                    <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
+                  </ul>
+                </div>
+              </div>
+              <hr>
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                  <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by 
+               <a href="#">Scanfcode</a>.
+                  </p>
+                </div>
+      
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                  <ul class="social-icons">
+                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+                  </ul>
+                </div>
+              </div>
+            </div>
+      </footer>
     </section>
 
     <!-- <div class="menu_class" id="score" style="display:none;">
