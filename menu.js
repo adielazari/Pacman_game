@@ -338,9 +338,11 @@ toggle("Welcome");
   }
 
   function loadCan(){
+
       start=true;
       toggle('loadCanvas');
       if(isSettingsExist()){
+          stopMusic();
           if(comparesettings(get_settings,Array_of_setting)){
             set_Settings(Array_of_setting);
           }

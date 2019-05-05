@@ -89,6 +89,7 @@ function restart(){
     initgame(settings);
 }
 function initgame(arr){
+    disco=false;
     time_elapsed=0;
     theme = new sound("pacman.mp3");
     chomp = new sound("pacman_chomp.wav");
@@ -681,6 +682,11 @@ function UpdatePosition() {
 
 
     }
+}
+
+function stopMusic(){
+    theme.stop();
+    disco=false;
 }
 function gameover(){
     theme.stop();
