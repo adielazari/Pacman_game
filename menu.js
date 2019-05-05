@@ -290,6 +290,9 @@ toggle("Welcome");
   }
   function TimeTosec(time){
       timeTosec=time.split(":");
+      if(timeTosec.length==2){
+        return timeTosec[0]*360 + timeTosec[1]*60;
+      }
       return timeTosec[0]*360 + timeTosec[1]*60 + timeTosec[2]*1;
   }
   /*Check if the user and the password are correct*/
